@@ -1,0 +1,507 @@
+ public IRegisterableResearch getResearchItem() {
+
+        IRegisterableResearch research = (TTResearchItem) new TTResearchItem(
+                "KEY_SPELL_CLOTH",
+                new AspectList().add(Aspect.MAGIC, 2).add(Aspect.CLOTH, 1),
+                3,
+                2,
+                2,
+                new ItemStack(this)).setParentsHidden("ENCHFABRIC").setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.crucibleRecipePage(LibResearch.KEY_SPELL_CLOTH));
+        return research;
+    }
+	
+public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_XP_TALISMAN",
+                new AspectList().add(Aspect.GREED, 1).add(Aspect.MAGIC, 1).add(Aspect.MAN, 1),
+                4,
+                -1,
+                2,
+                new ItemStack(this, 1, 1)).setParents("JARBRAIN", LibResearch.KEY_SPELL_CLOTH).setConcealed()
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_XP_TALISMAN))
+                        .setSecondary();
+    }
+	
+public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_BLOOD_SWORD",
+                new AspectList().add(Aspect.HUNGER, 2).add(Aspect.WEAPON, 1).add(Aspect.FLESH, 1).add(Aspect.SOUL, 1),
+                -4,
+                6,
+                3,
+                new ItemStack(this))
+                        .setWarp(1).setParents(LibResearch.KEY_CLEANSING_TALISMAN)
+                        .setPages(
+                                new ResearchPage("0"),
+                                ResearchHelper.infusionPage("KEY_BLOOD_SWORD)",
+                                new ResearchPage("1"))
+                        .setSecondary();
+					
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_BLOCK_TALISMAN",
+                new AspectList().add(Aspect.VOID, 2).add(Aspect.DARKNESS, 1).add(Aspect.ELDRITCH, 1)
+                        .add(Aspect.MAGIC, 1),
+                14,
+                17,
+                5,
+                new ItemStack(this)).setParents("KEY_ICHOR_PICK_GEM", LibResearch.KEY_ICHOR_SHOVEL_GEM)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_BLOCK_TALISMAN));
+
+    public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_CAT_AMULET",
+                new AspectList().add(Aspect.MIND, 2).add(Aspect.ORDER, 1).add(Aspect.DARKNESS, 1).add(Aspect.DEATH, 1),
+                13,
+                10,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORIUM)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_CAT_AMULET));
+						
+    public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_BRIGHT_NITOR",
+                new AspectList().add(Aspect.LIGHT, 2).add(Aspect.FIRE, 1).add(Aspect.ENERGY, 1).add(Aspect.AIR, 1),
+                1,
+                -5,
+                2,
+                new ItemStack(this))
+                        .setParents(LibResearch.KEY_GASEOUS_LIGHT).setConcealed()
+                        .setPages(
+                                new ResearchPage("0"),
+                                ResearchHelper.crucibleRecipePage(LibResearch.KEY_BRIGHT_NITOR))
+                        .setSecondary();
+
+    @Override
+    public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_CLEANSING_TALISMAN",
+                new AspectList().add(Aspect.HEAL, 2).add(Aspect.ORDER, 1).add(Aspect.POISON, 1),
+                -3,
+                4,
+                3,
+                new ItemStack(this)).setSecondary().setParents(LibResearch.KEY_DARK_QUARTZ).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage(LibResearch.KEY_CLEANSING_TALISMAN));
+    }
+
+ @Override
+    public IRegisterableResearch getResearchItem() {
+
+        if (!Config.allowMirrors) {
+            return null;
+        }
+        IRegisterableResearch research = (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_ENDER_CHEST",
+                new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.VOID, 1).add(Aspect.MAGIC, 1),
+                -6,
+                -2,
+                2,
+                new ItemStack(this)).setWarp(1).setParents(LibResearch.KEY_FOCUS_DEFLECT).setConcealed();
+
+public IRegisterableResearch getResearchItem() {
+        if (!Config.allowMirrors) {
+            return null;
+        }
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_DEFLECT",
+                new AspectList().add(Aspect.MOTION, 2).add(Aspect.AIR, 1).add(Aspect.ORDER, 1).add(Aspect.DEATH, 1),
+                -4,
+                -3,
+                3,
+                new ItemStack(this)).setConcealed().setParents(LibResearch.KEY_FOCUS_SMELT)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_DEFLECT))
+                        .setSecondary();
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHORCLOTH_HELM_GEM",
+                new AspectList().add(Aspect.WATER, 2).add(Aspect.HEAL, 1).add(Aspect.HUNGER, 1).add(Aspect.AURA, 1),
+                18,
+                3,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORCLOTH_ARMOR).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage(LibResearch.KEY_ICHORCLOTH_HELM_GEM));
+						
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_FOCUS_SHADOWBEAM",
+                new AspectList().add(Aspect.DARKNESS, 2).add(Aspect.MAGIC, 1).add(Aspect.ELDRITCH, 1)
+                        .add(Aspect.TAINT, 1),
+                14,
+                4,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORCLOTH_ROD)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_SHADOWBEAM));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!Config.allowMirrors) {
+            return null;
+        }
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_HEAL",
+                new AspectList().add(Aspect.HEAL, 2).add(Aspect.SOUL, 1).add(Aspect.MAGIC, 1),
+                -6,
+                -4,
+                2,
+                new ItemStack(this)).setParents(LibResearch.KEY_FOCUS_DEFLECT).setConcealed()
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_HEAL))
+                        .setSecondary();
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!Config.allowMirrors) {
+            return null;
+        }
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_DISLOCATION",
+                new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.MAGIC, 1).add(Aspect.EXCHANGE, 1),
+                -5,
+                -5,
+                2,
+                new ItemStack(this)).setSecondary().setParents(LibResearch.KEY_FOCUS_FLIGHT).setConcealed().setPages(
+                        new ResearchPage("0"),
+                        new ResearchPage("1"),
+                        ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_DISLOCATION));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!Config.allowMirrors) {
+            return null;
+        }
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_FOCUS_RECALL",
+                new AspectList().add(Aspect.TRAVEL, 2).add(Aspect.ELDRITCH, 1).add(Aspect.FLIGHT, 1)
+                        .add(Aspect.MAGIC, 1),
+                20,
+                8,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_WARP_GATE)
+                        .setParentsHidden(LibResearch.KEY_ICHORCLOTH_ROD)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_RECALL));
+    }
+	
+public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_FLIGHT",
+                new AspectList().add(Aspect.MOTION, 1).add(Aspect.MAGIC, 1).add(Aspect.AIR, 2),
+                -3,
+                -4,
+                2,
+                new ItemStack(this)).setParents(LibResearch.KEY_FOCUS_SMELT).setConcealed()
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_FLIGHT));
+    }
+	
+public IRegisterableResearch getResearchItem() {
+
+        IRegisterableResearch research = (TTResearchItem) new TTResearchItem(
+                "KEY_GAS_REMOVER",
+                new AspectList().add(Aspect.DARKNESS, 2).add(Aspect.LIGHT, 2),
+                -2,
+                -7,
+                0,
+                new ItemStack(this)).setRound()
+                        .setPages(new ResearchPage("0"), ResearchHelper.arcaneRecipePage(LibResearch.KEY_GAS_REMOVER))
+                        .setParents(LibResearch.KEY_GASEOUS_SHADOW);
+        return research;
+    }
+
+public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_TELEKINESIS",
+                new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.MAGIC, 1).add(Aspect.MOTION, 1),
+                -4,
+                -6,
+                2,
+                new ItemStack(this)).setParents(LibResearch.KEY_FOCUS_FLIGHT).setConcealed()
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_TELEKINESIS))
+                        .setSecondary();
+    }
+	
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHORCLOTH_LEGS_GEM",
+                new AspectList().add(Aspect.FIRE, 2).add(Aspect.HEAL, 1).add(Aspect.GREED, 1).add(Aspect.ENERGY, 1),
+                17,
+                9,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORCLOTH_ARMOR).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage("KEY_ICHORCLOTH_LEGS_GEM)",
+                        new ResearchPage("1"));
+    }
+	
+@Override
+    public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHORCLOTH_CHEST_GEM",
+                new AspectList().add(Aspect.AIR, 2).add(Aspect.MOTION, 1).add(Aspect.FLIGHT, 1).add(Aspect.ELDRITCH, 1),
+                17,
+                7,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORCLOTH_ARMOR).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage(LibResearch.KEY_ICHORCLOTH_CHEST_GEM));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_FOCUS_XP_DRAIN",
+                new AspectList().add(Aspect.MIND, 2).add(Aspect.MAGIC, 1).add(Aspect.AURA, 1).add(Aspect.MAN, 1),
+                12,
+                3,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORCLOTH_ROD)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_FOCUS_XP_DRAIN));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        return (TTResearchItem) new TTResearchItem(
+                "KEY_FOCUS_SMELT",
+                new AspectList().add(Aspect.FIRE, 2).add(Aspect.ENERGY, 1).add(Aspect.MAGIC, 1),
+                -2,
+                -2,
+                2,
+                new ItemStack(this)).setParents("FOCUSEXCAVATION").setConcealed()
+                        .setPages(new ResearchPage("0"), ResearchHelper.arcaneRecipePage(LibResearch.KEY_FOCUS_SMELT));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHOR_AXE_GEM",
+                new AspectList().add(Aspect.WATER, 2).add(Aspect.TOOL, 1).add(Aspect.TREE, 1).add(Aspect.CROP, 1),
+                16,
+                14,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHOR_TOOLS)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_ICHOR_AXE_GEM));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHORCLOTH_BOOTS_GEM",
+                new AspectList().add(Aspect.EARTH, 2).add(Aspect.TRAVEL, 1).add(Aspect.MINE, 1).add(Aspect.PLANT, 1),
+                15,
+                10,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHORCLOTH_ARMOR).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage(LibResearch.KEY_ICHORCLOTH_BOOTS_GEM));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHOR_SHOVEL_GEM",
+                new AspectList().add(Aspect.EARTH, 2).add(Aspect.TOOL, 1).add(Aspect.MINE, 1).add(Aspect.EARTH, 1),
+                15,
+                15,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHOR_TOOLS)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_ICHOR_SHOVEL_GEM));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHOR_PICK_GEM",
+                new AspectList().add(Aspect.FIRE, 2).add(Aspect.TOOL, 1).add(Aspect.MINE, 1).add(Aspect.EARTH, 1),
+                13,
+                15,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHOR_TOOLS).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage("KEY_ICHOR_PICK_GEM)",
+                        new ResearchPage("1"));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHOR_TOOLS",
+                new AspectList().add(Aspect.TOOL, 2).add(Aspect.WEAPON, 1).add(Aspect.METAL, 1).add(Aspect.CRAFT, 1),
+                13,
+                12,
+                5,
+                new ItemStack(this)).setWarp(2).setConcealed().setParents(LibResearch.KEY_ICHORIUM)
+                        .setParentsHidden(LibResearch.KEY_ICHORCLOTH_ROD).setPages(
+                                new ResearchPage("0"),
+                                ResearchHelper.arcaneRecipePage("KEY_ICHOR_PICK)",
+                                ResearchHelper.arcaneRecipePage("KEY_ICHOR_SHOVEL)",
+                                ResearchHelper.arcaneRecipePage("KEY_ICHOR_AXE)",
+                                ResearchHelper.arcaneRecipePage(LibResearch.KEY_ICHOR_SWORD));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHOR_SWORD_GEM",
+                new AspectList().add(Aspect.AIR, 2).add(Aspect.WEAPON, 1).add(Aspect.SOUL, 1).add(Aspect.HUNGER, 1),
+                16,
+                12,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHOR_TOOLS).setPages(
+                        new ResearchPage("0"),
+                        ResearchHelper.infusionPage("KEY_ICHOR_SWORD_GEM)",
+                        new ResearchPage("1"));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_ICHOR_POUCH",
+                new AspectList().add(Aspect.VOID, 2).add(Aspect.CLOTH, 1).add(Aspect.ELDRITCH, 1).add(Aspect.MAN, 1),
+                13,
+                6,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHOR_CLOTH)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_ICHOR_POUCH));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        IRegisterableResearch research;
+        research = (TTResearchItem) new TTResearchItem(
+                "KEY_REVEALING_HELM",
+                new AspectList().add(Aspect.AURA, 2).add(Aspect.ARMOR, 1),
+                0,
+                0,
+                1,
+                new ItemStack(this)).setParents("GOGGLES").setParentsHidden("THAUMIUM");
+        ((TTResearchItem) research)
+                .setPages(new ResearchPage("0"), ResearchHelper.arcaneRecipePage(LibResearch.KEY_REVEALING_HELM));
+        return research;
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_PLACEMENT_MIRROR",
+                new AspectList().add(Aspect.CRAFT, 2).add(Aspect.CRYSTAL, 1).add(Aspect.ELDRITCH, 1)
+                        .add(Aspect.MIND, 1),
+                17,
+                16,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_BLOCK_TALISMAN)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_PLACEMENT_MIRROR));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableFire) return (TTResearchItem) new TTResearchItem(
+                "KEY_POTIONS",
+                new AspectList().add(Aspect.WATER, 5).add(Aspect.ENTROPY, 5),
+                7,
+                -5,
+                2,
+                ItemInfusedSeeds.getStack
+
+public IRegisterableResearch getResearchItem() {
+        research = new KamiResearchItem(
+                "KEY_ICHOR",
+                new AspectList().add(Aspect.MAN, 1).add(Aspect.LIGHT, 2).add(Aspect.SOUL, 1).add(Aspect.TAINT, 1),
+                9,
+                8,
+                5,
+                new ItemStack(this, 1, 0)).setWarp(5);
+        research.setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_ICHOR));
+        ResearchHelper.kamiResearch = research;
+
+        researchItemMulti.addResearch(research);
+
+        research = (TTResearchItem) new KamiResearchItem(
+                "KEY_ICHOR_CLOTH",
+                new AspectList().add(Aspect.CLOTH, 2).add(Aspect.LIGHT, 1).add(Aspect.CRAFT, 1).add(Aspect.SENSES, 1),
+                11,
+                7,
+                5,
+                new ItemStack(this, 1, 1)).setConcealed().setParents(LibResearch.KEY_ICHOR);
+        research.setPages(new ResearchPage("0"), ResearchHelper.arcaneRecipePage(LibResearch.KEY_ICHOR_CLOTH));
+        researchItemMulti.addResearch(research);
+
+        research = (TTResearchItem) new KamiResearchItem(
+                "KEY_ICHORIUM",
+                new AspectList().add(Aspect.METAL, 2).add(Aspect.LIGHT, 1).add(Aspect.CRAFT, 1).add(Aspect.TOOL, 1),
+                11,
+                9,
+                5,
+                new ItemStack(this, 1, 2)).setConcealed().setParents(LibResearch.KEY_ICHOR)
+                        .setParentsHidden(LibResearch.KEY_ICHOR_CLOTH);
+        research.setPages(new ResearchPage("0"), ResearchHelper.arcaneRecipePage(LibResearch.KEY_ICHORIUM));
+        researchItemMulti.addResearch(research);
+
+        research = (TTResearchItem) new KamiResearchItem(
+                "KEY_ICHOR_CAP",
+                new AspectList().add(Aspect.TOOL, 2).add(Aspect.METAL, 1).add(Aspect.LIGHT, 1).add(Aspect.MAGIC, 1),
+                11,
+                11,
+                5,
+                new ItemStack(this, 1, 4)).setWarp(2).setConcealed().setParents(LibResearch.KEY_ICHORIUM);
+        research.setPages(new ResearchPage("0"), ResearchHelper.arcaneRecipePage(LibResearch.KEY_ICHOR_CAP));
+        researchItemMulti.addResearch(research);
+
+        research = (TTResearchItem) new KamiResearchItem(
+                "KEY_ICHORCLOTH_ROD",
+                new AspectList().add(Aspect.TOOL, 2).add(Aspect.CLOTH, 1).add(Aspect.LIGHT, 1).add(Aspect.MAGIC, 1),
+                14,
+                2,
+                5,
+                new ItemStack(this, 1, 5)).setWarp(1).setConcealed().setParents(LibResearch.KEY_ICHOR_CLOTH)
+                        .setParentsHidden(LibResearch.KEY_ICHOR_CAP);
+        research.setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_ICHORCLOTH_ROD));
+        researchItemMulti.addResearch(research);
+
+        return researchItemMulti;
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return (IRegisterableResearch) new KamiResearchItem(
+                "KEY_PROTOCLAY",
+                new AspectList().add(Aspect.TOOL, 2).add(Aspect.MINE, 1).add(Aspect.MAN, 1).add(Aspect.MECHANISM, 1),
+                12,
+                17,
+                5,
+                new ItemStack(this)).setParents(LibResearch.KEY_ICHOR_PICK_GEM)
+                        .setParentsHidden(LibResearch.KEY_ICHOR_SHOVEL_GEM)
+                        .setPages(new ResearchPage("0"), ResearchHelper.infusionPage(LibResearch.KEY_PROTOCLAY));
+    }
+
+public IRegisterableResearch getResearchItem() {
+        if (!ConfigHandler.enableKami) return null;
+        return armorType != 0 ? null
+                : (IRegisterableResearch) new KamiResearchItem(
+						"KEY_ICHORCLOTH_ARMOR",
+                        new AspectList().add(Aspect.ARMOR, 2).add(Aspect.CLOTH, 1).add(Aspect.LIGHT, 1)
+                                .add(Aspect.CRAFT, 1),
+                        17,
+                        5,
+                        5,
+                        new ItemStack(this)).setWarp(4).setConcealed().setParents(LibResearch.KEY_ICHOR_CLOTH).setPages(
+                                new ResearchPage("0"),
+                                ResearchHelper.arcaneRecipePage("KEY_ICHORCLOTH_HELM)",
+                                ResearchHelper.arcaneRecipePage("KEY_ICHORCLOTH_CHEST)",
+                                ResearchHelper.arcaneRecipePage("KEY_ICHORCLOTH_LEGS)",
+                                ResearchHelper.arcaneRecipePage(LibResearch.KEY_ICHORCLOTH_BOOTS));
+    }
+
+ThaumcraftApi.addWarpToResearch("KEY_ICHORCLOTH_ARMOR", 4);
+ThaumcraftApi.addWarpToResearch("KEY_BLOOD_SWORD", 1);
+ThaumcraftApi.addWarpToResearch("KEY_FOCUS_ENDER_CHEST", 1);
+ThaumcraftApi.addWarpToResearch("KEY_ICHOR_TOOLS", 2);
+ThaumcraftApi.addWarpToResearch("KEY_ICHOR", 5);
+ThaumcraftApi.addWarpToResearch("KEY_ICHOR_CAP", 2);
+ThaumcraftApi.addWarpToResearch("KEY_ICHORCLOTH_ROD", 1);

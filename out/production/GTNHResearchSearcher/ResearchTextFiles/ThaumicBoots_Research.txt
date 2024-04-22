@@ -1,0 +1,174 @@
+coreResearch = new ResearchItem(
+                "TB_Core_Research",
+                category,
+                new AspectList().add(TB_Aspect.BOOTS, 10).add(Aspect.EXCHANGE, 10),
+                0,
+                0,
+                0,
+                new ItemStack(Config.arcaniumLens));
+
+        core1 = new ResearchPage("Core.1");
+        core2 = new ResearchPage(thaumaturgicCombinator);
+        coreResearch.setPages(core1, core2);
+        coreResearch.setParents("THAUMIUM");
+        ResearchCategories.addResearch(coreResearch);
+
+        seasonalCore = new ResearchItem(
+                "TB_Seasonal_Boots",
+                category,
+                new AspectList().add(TB_Aspect.BOOTS, 25).add(Aspect.EXCHANGE, 25).add(Aspect.COLD, 25)
+                        .add(Aspect.MAGIC, 25).add(Aspect.ENERGY, 25),
+                2,
+                0,
+                0,
+                new ItemStack(Config.seasonBoots));
+        seasonalCore1 = new ResearchPage("SeasonalCore.1");
+        seasonalCore2 = new ResearchPage(seasonalBoot);
+        seasonalCore.setPages(seasonalCore1, seasonalCore2);
+        seasonalCore.setParents("TB_Core_Research");
+        ResearchCategories.addResearch(seasonalCore);
+
+        seasonalStabilized = new ResearchItem(
+                "TB_Seasonal_Stabilized",
+                category,
+                new AspectList().add(Aspect.TRAP, 50).add(Aspect.CRYSTAL, 25).add(Aspect.EXCHANGE, 25)
+                        .add(Aspect.COLD, 25).add(Aspect.LIGHT, 25),
+                4,
+                0,
+                0,
+                new ItemStack(Config.christmasBoots));
+        seasonalStabilized1 = new ResearchPage("SeasonalStabilized.1");
+        if (CalendarHelper.isChristmas()) {
+            seasonalStabilized2 = new ResearchPage(seasonalToChristmas);
+        } else {
+            seasonalStabilized2 = new ResearchPage("seasonalStabilized.2");
+        }
+        seasonalStabilized.setPages(seasonalStabilized1, seasonalStabilized2);
+        seasonalStabilized.setParents("TB_Seasonal_Boots");
+        ResearchCategories.addResearch(seasonalStabilized);
+
+        uniqueCore = new ResearchItem(
+                "TB_Unique_Boots",
+                category,
+                new AspectList().add(TB_Aspect.BOOTS, 25).add(Aspect.EXCHANGE, 25).add(Aspect.TOOL, 25)
+                        .add(Aspect.MAGIC, 25).add(Aspect.ENERGY, 25),
+                -2,
+                0,
+                0,
+                new ItemStack(Config.slowBoots));
+        uniqueCore1 = new ResearchPage("UniqueCore.1");
+        uniqueCore2 = new ResearchPage(slowBoot);
+        uniqueCore.setPages(uniqueCore1, uniqueCore2);
+        uniqueCore.setParents("TB_Core_Research");
+        ResearchCategories.addResearch(uniqueCore);
+
+        if (!EMTHelper.isActive() && !ExplorationsHelper.isActive() && !TaintedHelper.isActive()) {
+            return;
+        }
+
+        if (ExplorationsHelper.isActive()) {
+            explorationsCore = new ResearchItem(
+                    "TB_Explorations_Core",
+                    category,
+                    new AspectList().add(TB_Aspect.BOOTS, 25).add(TB_Aspect.SPACE, 25).add(Aspect.EXCHANGE, 15),
+                    0,
+                    -3,
+                    0,
+                    new ItemStack(ThaumicExploration.bootsMeteor));
+            explorationsCore1 = new ResearchPage("ExplorationsCore.1");
+            explorationsCore.setPages(explorationsCore1);
+            explorationsCore.setConcealed().setParents("METEORBOOTS", "COMETBOOTS");
+            ResearchCategories.addResearch(explorationsCore);
+
+            explorationsCompat = new ResearchItem(
+                    "TB_Explorations_Compat",
+                    category,
+                    new AspectList().add(TB_Aspect.BOOTS, 25).add(TB_Aspect.SPACE, 25).add(Aspect.EXCHANGE, 15),
+                    0,
+                    -2,
+                    0,
+                    new ItemStack(ExplorationsHelper.bootsCometMeteor));
+            explorationsCompat1 = new ResearchPage("ExplorationsCompat.1");
+            explorationsCompat2 = new ResearchPage(cometMeteor);
+            explorationsCompat3 = new ResearchPage(meteorComet);
+            explorationsCompat.setPages(explorationsCompat1, explorationsCompat2, explorationsCompat3);
+            explorationsCompat.setConcealed().setParents("TB_Core_Research", "TB_Explorations_Core");
+            ResearchCategories.addResearch(explorationsCompat);
+        }
+
+        if (TaintedHelper.isActive()) {
+            taintedCore = new ResearchItem(
+                    "TB_Tainted_Core",
+                    category,
+                    new AspectList().add(TB_Aspect.BOOTS, 25).add(Aspect.ELDRITCH, 25).add(Aspect.EXCHANGE, 15),
+                    3,
+                    2,
+                    0,
+                    new ItemStack(ItemRegistry.ItemVoidwalkerBoots));
+            taintedCore1 = new ResearchPage("TaintedCore.1");
+            taintedCore.setPages(taintedCore1);
+            taintedCore.setConcealed().setParents("VOIDWALKERBOOTS");
+            ResearchCategories.addResearch(taintedCore);
+        }
+
+        if (ExplorationsHelper.isActive() && TaintedHelper.isActive()) {
+            explorationsTaintedCompat = new ResearchItem(
+                    "TB_Explorations_Tainted_Compat",
+                    category,
+                    new AspectList().add(TB_Aspect.BOOTS, 25).add(TB_Aspect.SPACE, 25).add(Aspect.ELDRITCH, 25)
+                            .add(Aspect.EXCHANGE, 15),
+                    3,
+                    -2,
+                    0,
+                    new ItemStack(ExplorationsHelper.bootsMeteorVoid));
+            explorationsTainted1 = new ResearchPage("ExplorationsTainted.1");
+            explorationsTainted2 = new ResearchPage(voidMeteor);
+            explorationsTainted3 = new ResearchPage(voidComet);
+            explorationsTaintedCompat.setPages(explorationsTainted1, explorationsTainted2, explorationsTainted3);
+            explorationsTaintedCompat.setConcealed()
+                    .setParents("TB_Explorations_Core", "TB_Tainted_Core", "TB_Core_Research");
+            ResearchCategories.addResearch(explorationsTaintedCompat);
+        }
+		
+		emtCore = new ResearchItem(
+                "TB_EMT_Core",
+                category,
+                new AspectList().add(TB_Aspect.BOOTS, 25).add(Aspect.ENERGY, 25).add(Aspect.EXCHANGE, 15),
+                -3,
+                2,
+                0,
+                new ItemStack(EMTItems.electricBootsTraveller));
+        emtCore1 = new ResearchPage("EMTCore.1");
+        emtCore2 = new ResearchPage("EMTCore.2");
+        emtCore.setPages(emtCore1, emtCore2);
+        emtCore.setConcealed().setParents("Electric Boots of the Traveller");
+        ResearchCategories.addResearch(emtCore);
+
+        if (TaintedHelper.isActive()) {
+            emtTaintedCompat = new ResearchItem(
+                    "TB_EMT_Tainted_Compat",
+                    category,
+                    new AspectList().add(TB_Aspect.BOOTS, 25).add(Aspect.ELDRITCH, 25).add(Aspect.ENERGY, 25)
+                            .add(Aspect.EXCHANGE, 15),
+                    0,
+                    3,
+                    0,
+                    new ItemStack(EMTHelper.bootsElectricVoid));
+            emtTainted1 = new ResearchPage("EMTTainted.1");
+            emtTainted2 = new ResearchPage(electricVoid);
+            emtTainted3 = new ResearchPage(nanoVoid);
+            emtTainted4 = new ResearchPage(quantumVoid);
+            emtTaintedCompat.setPages(emtTainted1, emtTainted2, emtTainted3, emtTainted4);
+            emtTaintedCompat.setConcealed().setParents("TB_Tainted_Core", "TB_EMT_Core", "TB_Core_Research");
+            ResearchCategories.addResearch(emtTaintedCompat);
+        }
+        if (ExplorationsHelper.isActive()) {
+            explorationsEmtCompat = new ResearchItem(
+                    "TB_Explorations_EMT_Compat",
+                    category,
+                    new AspectList().add(TB_Aspect.BOOTS, 25).add(TB_Aspect.SPACE, 25).add(Aspect.ENERGY, 15)
+                            .add(Aspect.EXCHANGE, 15),
+                    -3,
+                    -2,
+                    0,
+                    new ItemStack(EMTHelper.bootsElectricMeteor));
